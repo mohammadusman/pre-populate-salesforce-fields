@@ -1,3 +1,8 @@
+/*
+    @Author      : Mohammad Usman
+	@Version     : v1.0
+	@Description :Generate field Ids for any object(Custom,Standard) 
+*/
 public with sharing class DemoOfsObjectFieldIds extends FieldIdsForObject{
     public String selectedObjectName{get;set;} // Selected Object name
     public map<String,String> fields{get;set;} // Field Id Map
