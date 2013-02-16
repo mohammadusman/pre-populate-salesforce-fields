@@ -1,7 +1,7 @@
 /*
 	@Author      : Mohammad Usman
 	@Version     : v1.0
-	@Description :Generate field Ids for any object(Custom,Standard) 
+	@Description :Generate field Ids for any object(Custom,Standard) and pre-populate fields for selected object
 */
 public abstract class FieldIdsForObject {
     /*
