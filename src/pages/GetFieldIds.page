@@ -1,0 +1,44 @@
+<apex:page sidebar="false" controller="DemoOfsObjectFieldIds">
+     <apex:sectionHeader title="Demo Of Dynamic Field Ids" />
+     <apex:form >
+         <apex:pageBlock >
+             <apex:pageBlockButtons >
+                 <apex:actionStatus startText="Retriveing...." id="ajaxId"/>
+                 <div class="btn"><apex:commandLink value="Get Field IDs" action="{!getFieldsIds}" reRender="tbl" style="text-decoration: none;" status="ajaxId"/></div>
+                 <div class="btn"><apex:commandLink value="Pre-populated Fields of Selected Object" action="{!prepopulate}" style="text-decoration: none;"/>
+                 </div>
+             </apex:pageBlockButtons>
+             <apex:selectList size="1" value="{!selectedObjectName}" >
+                 <label><b>Select Object To Be Pre-populate Field</b></label>&nbsp; <apex:selectOptions value="{!FieldsForSelectedObject}"></apex:selectOptions>
+             </apex:selectList><br/>
+             <apex:outputPanel id="tbl" >
+             <apex:outputPanel rendered="{!IF(fields == null,false,true)}">
+                 <table class="list" border="0" cellspacing="0" cellpadding="0" style="width:20% !important">
+                     <thead>
+                         <tr class="headerRow">
+                             <th>
+                                 Field Name
+                             </th>
+                             <th>
+                                 Field Id
+                             </th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <apex:repeat value="{!fields}" var="f">
+                             <tr class="dataRow even first">
+                                 <td>
+                                     {!f}
+                                 </td>
+                                 <td>
+                                     {!fields[f]}
+                                 </td>
+                             </tr>
+                         </apex:repeat>
+                     </tbody>
+                 </table>
+             </apex:outputPanel>
+             </apex:outputPanel>
+         </apex:pageBlock>         
+     </apex:form>
+</apex:page>
